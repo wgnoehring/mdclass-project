@@ -2,23 +2,15 @@
 // Created by wnoehring on 4/27/21.
 //
 
+#include "types.h"
 
-void verlet_step1(double &x, double &y, double &z, double &vx, double &vy, double &vz,
-                  double fx, double fy, double fz, double timestep, double mass) {
+void verlet_step1(Positions_t &positions, Velocities_t &velocities, const Forces_t &forces, double timestep, double mass) {
     double dtm = 0.5 * timestep / mass;
-    vx += fx * dtm;
-    vy += fy * dtm;
-    vz += fz * dtm;
-    x += vx * timestep;
-    y += vy * timestep;
-    z += vz * timestep;
+    velocities += forces * dtm;
+    positions += velocities * timestep;
 }
 
-void verlet_step2(double &vx, double &vy, double &vz, double fx, double fy, double fz,
-                  double timestep, double mass) {
+void verlet_step2(Velocities_t &velocities, const Forces_t &forces, double timestep, double mass) {
     double dtm = 0.5 * timestep / mass;
-    vx += fx * dtm;
-    vy += fy * dtm;
-    vz += fz * dtm;
-    // implement verlet step
+    velocities += forces * dtm;
 }

@@ -11,15 +11,17 @@ add_external_package(Eigen3 VERSION 3.4.0 CONFIG)
 
 set(YAMD_HDRS
         # Add header files here
+        ${CMAKE_CURRENT_SOURCE_DIR}/run.h
         ${CMAKE_CURRENT_SOURCE_DIR}/verlet.h 
         ${CMAKE_CURRENT_SOURCE_DIR}/gravity.h 
-        ${CMAKE_CURRENT_SOURCE_DIR}/run.h
         )
 
 set(YAMD_SRCS
         # Add source files here
-        ${CMAKE_CURRENT_SOURCE_DIR}/verlet.cpp 
-        ${CMAKE_CURRENT_SOURCE_DIR}/run.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/run.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/verlet.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/gravity.cpp
+        )
 
 set(YAMD_executable_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
