@@ -2,7 +2,6 @@
 // Created by wnoehring on 5/3/21.
 //
 #include <iostream>
-#include <iomanip>
 #include <gtest/gtest.h>
 #include <cmath>
 #include "../gravity.h"
