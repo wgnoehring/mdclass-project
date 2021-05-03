@@ -7,15 +7,15 @@ FetchContent_MakeAvailable(googletest)
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-set(myproject_tests_SRCS
+set(YAMD_tests_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/test_hello_world.cpp
-        )
+        ${CMAKE_CURRENT_SOURCE_DIR}/test_verlet.cpp)
 
 # Tests
-add_executable(myproject_tests ${myproject_SRCS} ${myproject_HDRS} ${myproject_tests_SRCS})
-target_link_libraries(myproject_tests PUBLIC Eigen3::Eigen gtest gtest_main)
+add_executable(YAMD_tests ${YAMD_SRCS} ${YAMD_HDRS} ${YAMD_tests_SRCS})
+target_link_libraries(YAMD_tests PUBLIC Eigen3::Eigen gtest gtest_main)
 
 include(GoogleTest)
-gtest_discover_tests(myproject_tests)
+gtest_discover_tests(YAMD_tests)
 
-add_test(NAME myproject_tests COMMAND myproject_tests)
+add_test(NAME YAMD_tests COMMAND YAMD_tests)
